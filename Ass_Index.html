@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Webpage</title>
+  <style>
+    /* Basic styling */
+    .modal { display: none; background-color: rgba(0, 0, 0, 0.5); position: fixed; top: 0; left: 0; width: 100%; height: 100%; }
+    .modal-content { background-color: white; padding: 20px; margin: 20% auto; width: 200px; text-align: center; }
+  </style>
+</head>
+<body>
+
+  <h1>Simple Webpage</h1>
+
+  <!-- Form with basic validation -->
+  <form id="myForm">
+    <input type="text" id="name" placeholder="Enter Name" required>
+    <input type="email" id="email" placeholder="Enter Email" required>
+    <button type="submit">Submit</button>
+  </form>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <div class="modal-content">
+      <span id="closeBtn">Close</span>
+      <p>Modal is open!</p>
+    </div>
+  </div>
+
+  <button id="openModal">Open Modal</button>
+
+  <script>
+    // Form validation
+    document.getElementById("myForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form submission
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      if (!name || !email) {
+        alert("Please fill in both fields.");
+      } else {
+        alert("Form submitted!");
+      }
+    });
+
+    // Open modal
+    document.getElementById("openModal").addEventListener("click", function() {
+      document.getElementById("myModal").style.display = "block";
+    });
+
+    // Close modal
+    document.getElementById("closeBtn").addEventListener("click", function() {
+      document.getElementById("myModal").style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
